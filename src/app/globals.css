@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #060d1a;
+  --blue: #0d2137;
+  --teal: #00B4D8;
+  --light-teal: #90E0EF;
+  --white: #F8FAFC;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  background: #060d1a;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Background ── */
+.main-bg {
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,180,216,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 120%, rgba(0,100,180,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 20% 110%, rgba(0,180,216,0.25) 0%, transparent 55%),
+    linear-gradient(180deg, #060d1a 0%, #080f1e 50%, #060d1a 100%);
+}
+
+/* ── Glass ── */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.glass-strong {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(0,180,216,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,180,216,0.12);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,180,216,0.2); border-radius: 2px; }
+
+/* ── Chat bubbles ── */
+.bubble-user {
+  background: linear-gradient(135deg, #0d2a4a, #0077a8);
+  border-radius: 18px 18px 4px 18px;
+  color: white;
+  box-shadow: 0 4px 24px rgba(0,180,216,0.2);
+  border: 1px solid rgba(0,180,216,0.2);
+}
+
+.bubble-ai {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px 18px 18px 4px;
+  color: #e8f4f8;
+}
+
+/* ── Typing dots ── */
+.typing-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #00B4D8;
+  animation: typing 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-7px); opacity: 1; }
+}
+
+/* ── Orbs ── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ── Quick reply buttons ── */
+.quick-reply {
+  background: rgba(0,180,216,0.08);
+  border: 1px solid rgba(0,180,216,0.2);
+  color: #90E0EF;
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.quick-reply:hover {
+  background: rgba(0,180,216,0.18);
+  border-color: rgba(0,180,216,0.5);
+  color: white;
+  box-shadow: 0 0 20px rgba(0,180,216,0.2);
+  transform: translateY(-1px);
+}
+
+/* ── Input ── */
+.chat-input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+.chat-input::placeholder { color: rgba(255,255,255,0.25); }
+
+/* ── Bottom glow ── */
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.35s ease forwards; }
+
+.btn-glow:hover {
+  box-shadow: 0 0 24px rgba(0,180,216,0.35);
+  transform: translateY(-1px);
+}
